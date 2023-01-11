@@ -1,0 +1,200 @@
+$fontSizes:(
+    title:2rem,
+    todo:1.5rem,
+);
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image:linear-gradient(to bottom, #666666 0%, #666666 0%, #000000 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display:flex;
+    justify-content: center;
+}
+
+#content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width:75%;
+    height:auto;
+    padding-top:5rem;
+    gap:1rem;
+
+    #title{
+        color:white;
+        font-size: map-get($fontSizes, title);
+        text-align: center;
+    }
+
+    #addTodo{
+        //border:1px solid white;
+        z-index:1;
+        padding-top:1rem;
+        width:100%;
+        height: auto;
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:1rem;
+
+
+        #addTodoInput{
+            width:20rem;
+            height: 3rem;
+            border:none;
+            outline: none;
+            padding-left: 1rem;
+            border-radius: 10px;
+            font-size: 1.5rem;
+        }
+
+        #buttonAndFilter{
+            display:flex;
+            gap:1rem;
+            #addTodoButton{
+                width: 3rem;
+                height: 3rem;
+                border: none;
+                border-radius: 10px;
+                background-color: orange;
+                color:black;
+    
+                :hover{
+                    color:white;
+                }
+            }
+
+
+        }
+        
+
+        
+
+    }
+
+    #todoListContainer{
+        //border:1px solid white;
+        width:100%;
+        height: auto;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #todoList{
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            padding-top:5rem;
+            gap:1rem;
+
+            li{
+
+                div{
+                    background-color: white;
+                    padding:1rem;
+                    width: 18rem;
+                    border-radius: 10px;
+                    border: none;
+                    font-size: map-get($fontSizes, todo);
+                    display: flex;
+                    align-items: center;
+
+
+                }
+                button{
+                    width:3rem;
+                    height: 3rem;
+                    border-radius: 10px;
+                    border: none;
+                }
+                display:flex;
+                flex-direction: row;
+                gap:0.5rem;
+                height: 3rem;
+                animation-duration: 1s;
+            }
+
+
+            #completeButton{
+                background-color: forestgreen;
+                border: none;
+                :hover{
+                    color:white;
+                }
+                
+            }
+            #removeButton{
+                background-color: tomato;
+                border: none;
+                :hover{
+                    color:white;
+                }
+                
+            }
+
+            .complete{
+                animation: complete 0.2s forwards;
+                div{
+                    text-decoration: line-through;
+                }
+                
+            }
+            .remove{
+                animation: remove 0.5s forwards;
+            }
+        }
+    }
+
+}
+
+@keyframes complete {
+    0%{opacity: 100%;};
+    100%{opacity: 50%;};
+}
+
+@keyframes remove {
+    0%{
+        opacity: 50%;
+    }
+    100%{
+        opacity: 0%;
+        transform:translateX(5rem);
+    };
+}
+
+@media (max-width:640px) {
+    #addTodo{
+        flex-direction: column !important;
+        align-items: center;
+    }
+    #content-container{
+        padding-top:0;
+        width:100%;
+    }
+    #title{
+        font-size:1.5rem !important;
+    }
+    ul{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+    }
+    li{
+        width:100%;
+    }
+    #todoList{
+        padding-top:1rem !important;
+    }
+}

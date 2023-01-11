@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #666666 0%, #666666 0%, #000000 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+#content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  height: auto;
+  padding-top: 5rem;
+  gap: 1rem;
+}
+#content-container #title {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+#content-container #addTodo {
+  z-index: 1;
+  padding-top: 1rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+#content-container #addTodo #addTodoInput {
+  width: 20rem;
+  height: 3rem;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+#content-container #addTodo #buttonAndFilter {
+  display: flex;
+  gap: 1rem;
+}
+#content-container #addTodo #buttonAndFilter #addTodoButton {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 10px;
+  background-color: orange;
+  color: black;
+}
+#content-container #addTodo #buttonAndFilter #addTodoButton :hover {
+  color: white;
+}
+#content-container #todoListContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#content-container #todoListContainer #todoList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  gap: 1rem;
+}
+#content-container #todoListContainer #todoList li {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  height: 3rem;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+#content-container #todoListContainer #todoList li div {
+  background-color: white;
+  padding: 1rem;
+  width: 18rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+#content-container #todoListContainer #todoList li button {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  border: none;
+}
+#content-container #todoListContainer #todoList #completeButton {
+  background-color: forestgreen;
+  border: none;
+}
+#content-container #todoListContainer #todoList #completeButton :hover {
+  color: white;
+}
+#content-container #todoListContainer #todoList #removeButton {
+  background-color: tomato;
+  border: none;
+}
+#content-container #todoListContainer #todoList #removeButton :hover {
+  color: white;
+}
+#content-container #todoListContainer #todoList .complete {
+  -webkit-animation: complete 0.2s forwards;
+          animation: complete 0.2s forwards;
+}
+#content-container #todoListContainer #todoList .complete div {
+  text-decoration: line-through;
+}
+#content-container #todoListContainer #todoList .remove {
+  -webkit-animation: remove 0.5s forwards;
+          animation: remove 0.5s forwards;
+}
+
+@-webkit-keyframes complete {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 50%;
+  }
+}
+
+@keyframes complete {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 50%;
+  }
+}
+@-webkit-keyframes remove {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 0%;
+    transform: translateX(5rem);
+  }
+}
+@keyframes remove {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 0%;
+    transform: translateX(5rem);
+  }
+}
+@media (max-width: 640px) {
+  #addTodo {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  #content-container {
+    padding-top: 0;
+    width: 100%;
+  }
+  #title {
+    font-size: 1.5rem !important;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  li {
+    width: 100%;
+  }
+  #todoList {
+    padding-top: 1rem !important;
+  }
+}/*# sourceMappingURL=style.css.map */
