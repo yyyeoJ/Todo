@@ -115,11 +115,18 @@ body {
   color: white;
 }
 #content-container #todoListContainer #todoList .complete {
-  -webkit-animation: complete 0.2s forwards;
-          animation: complete 0.2s forwards;
+  -webkit-animation: complete 0.5s forwards;
+          animation: complete 0.5s forwards;
 }
 #content-container #todoListContainer #todoList .complete div {
   text-decoration: line-through;
+}
+#content-container #todoListContainer #todoList .unComplete {
+  -webkit-animation: unComplete 0.5s forwards;
+          animation: unComplete 0.5s forwards;
+}
+#content-container #todoListContainer #todoList .unComplete div {
+  text-decoration: none;
 }
 #content-container #todoListContainer #todoList .remove {
   -webkit-animation: remove 0.5s forwards;
@@ -141,6 +148,22 @@ body {
   }
   100% {
     opacity: 50%;
+  }
+}
+@-webkit-keyframes unComplete {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes unComplete {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
   }
 }
 @-webkit-keyframes remove {

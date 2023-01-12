@@ -47,13 +47,24 @@ function addTodo(content){
     completeButton.id = "completeButton";
     completeButton.innerHTML="<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2em\" height=\"2em\" preserveAspectRatio=\"xMidYMid meet\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m10.6 16.2l7.05-7.05l-1.4-1.4l-5.65 5.65l-2.85-2.85l-1.4 1.4ZM5 21q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h14q.825 0 1.413.587Q21 4.175 21 5v14q0 .825-.587 1.413Q19.825 21 19 21Z\"/></svg>";
     completeButton.addEventListener("click", (event) => {
-      todo.classList.add("complete");
-      completeButton.style.pointerEvents = "none";
+      if(todo.classList.contains("complete")){
+        checkComplete(todo);
+        todo.classList.remove("complete");
+        todo.classList.add("unComplete");
+        
+        
+      }else{
+        checkComplete(todo);
+        todo.classList.remove("unComplete");
+        todo.classList.add("complete");
+        
+      }
       todo.addEventListener("animationend", () => {
 
         checkFilter();
+        
       })
-      checkComplete(todo);
+      // checkComplete(todo);
     })
     const removeButton = document.createElement("button");
     removeButton.id = "removeButton";
@@ -171,8 +182,13 @@ function checkComplete(todo){
   }else{
     todos = JSON.parse(localStorage.getItem("todos"));
   }
-  if(todo.innerText.slice(-1) != "*"){
+  if(!todo.classList.contains("complete")){
     todos[todos.indexOf(todo.innerText)] = todo.innerText + "*";
+    
+  }else{
+    todos[todos.indexOf(todo.innerText+"*")] = todo.innerText;
   }
   localStorage.setItem("todos", JSON.stringify(todos));
+    
+  
 }

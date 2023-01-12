@@ -143,12 +143,21 @@ body{
             }
 
             .complete{
-                animation: complete 0.2s forwards;
+                animation: complete 0.5s forwards;
                 div{
                     text-decoration: line-through;
                 }
                 
             }
+            .unComplete{
+                animation: unComplete 0.5s forwards;
+                
+                div{
+                    text-decoration: none;
+                }
+            }
+
+
             .remove{
                 animation: remove 0.5s forwards;
             }
@@ -160,6 +169,11 @@ body{
 @keyframes complete {
     0%{opacity: 100%;};
     100%{opacity: 50%;};
+}
+
+@keyframes unComplete {
+    0%{opacity: 50%;};
+    100%{opacity: 100%;};
 }
 
 @keyframes remove {
